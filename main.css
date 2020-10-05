@@ -1,0 +1,252 @@
+:root{
+    --bg-color: #ebf3f7;
+    --btn-card: #4558bf;
+    --card-bg-color: #fff; /*#fbffff;*/
+    --text-primary: #040404;
+    --text-secondary: #b9b9b9;
+    --border-color: #ebebeb;
+    --box-active-color: #0a24aa;
+    --box-color: #dfdfe0;
+    --color-option-1: #bf7371;
+    --color-option-2: #f0ebdf;
+    --color-option-3: #626468;
+    --color-option-4: #343947;
+    --color-option-5: #2d2f32;
+}
+
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{font-size: 62.5%;}
+body{
+    background-color: var(--bg-color);
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    position: relative;
+    width: 60rem;
+    margin: auto;
+}
+
+.card-back-1{
+    position: absolute;
+    top: -3rem;
+    left: 6%;
+    display: flex;
+    z-index: 1;
+    background-color: var(--card-bg-color);
+    width: 54rem;
+    height: 30rem;
+    margin: 0 auto 0;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, 0.1);
+}
+
+.card-back-2{
+    position: absolute;
+    top: -1.5rem;
+    left: 3%;
+    display: flex;
+    z-index: 5;
+    background-color: var(--card-bg-color);
+    width: 57rem;
+    height: 30rem;
+    margin: 0 auto 0;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, 0.1);
+}
+
+.card{
+    z-index: 10;
+    display: flex;
+    background-color: var(--card-bg-color);
+    width: 60rem;
+    height: 30rem;
+    margin: 15rem auto 0;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform-origin: bottom bottom;
+}
+
+.card.on,
+.card-back-1.on,
+.card-back-2.on{
+    animation: .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s 1 alternate both harlem;
+}
+.card-back-2.on{animation-delay: .2s;}
+.card-back-1.on{animation-delay: .3s;}
+.card.on{animation: .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) .1s 1 alternate both harlem__;}
+
+.card.off{
+    /* animation: .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) .1s 1 alternate both harlem_of; */
+    display:none;
+}
+
+
+@keyframes harlem_of{
+    from {transform: scale(1);}
+    50%{opacity: .5;}
+    to{opacity: 0; /*transform: translateY(100vh);*/ visibility: hidden;}
+}
+
+.btn-close{
+    position: absolute;
+    top:.6rem;
+    left: 96%;
+    font-size: 1.5rem;
+    cursor: pointer;    
+}
+
+.card-product{
+    border: .35rem solid var(--border-color);
+    flex: 1 1 50%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+}
+
+.card-product .box{
+    position: relative;
+    display: flex;
+    position: absolute;
+    bottom:.5rem;
+    left: .5rem;
+}
+
+.card-product .box span{
+    height: 1.3rem;
+    width: 1.3rem;
+    margin: .3rem;
+    background-color: var(--box-color);
+    cursor: pointer;
+}
+
+.card-product .box span.active{
+    background-color: var(--box-active-color);
+}
+
+.card-img{
+    width: 20rem;
+    display: block;
+}
+
+.card-product-info{
+    flex: 1 1 50%;
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:baseline;
+}
+
+.card-product-info h3{
+    color: var(--text-secondary);
+}
+
+.card-product-info p{
+    margin: 1.5rem 0 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.btn-group{
+    display:flex;
+}
+
+.btn-group button{
+    margin: .5rem .5rem .5rem 0;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-group button:nth-child(1){
+    background-color: var(--color-option-1);
+}
+.btn-group button:nth-child(2){
+    background-color: var(--color-option-2);
+}
+.btn-group button:nth-child(3){
+    background-color: var(--color-option-3);
+}
+.btn-group button:nth-child(4){
+    background-color: var(--color-option-4);
+}
+.btn-group button:nth-child(5){
+    background-color: var(--color-option-5);
+}
+
+.btn-group button.active{
+    transform: scale(.7);
+    transform-origin: right center;
+    margin-right: .8rem;
+    margin-left: -.3rem;
+}
+
+.btn-group button.active::before{
+    content: '';
+    width: 3rem;
+    position: absolute;
+    height: 3rem;
+    top: -.5rem;
+    left: -.5rem;
+    border: .2rem solid var(--box-active-color); 
+    /*padding:  .5rem 3rem;*/
+}
+
+.card-product-info-footer{
+    display: flex;
+    margin-top: 3.5rem;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.card-product-info-footer h1{
+    font-size: 3rem;
+}
+
+.btn-add-card{
+    color: var(--btn-card);
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/*
+* Animation
+*/
+@keyframes harlem{
+    0%{transform: scale(1);}
+    20% {transform: scale(1.03, 1.03);}
+    40% {transform: scale(0.97, .97);}
+    60% { transform: scale(1.01, 1.01);}
+    80% {transform: scale(0.99, .99);}
+    100% {transform: scale(1);}
+}
+
+@keyframes harlem__{
+    0%{transform: scale(1); opacity: 0;}
+    20% {transform: scale(1.03, 1.03); }
+    40% {transform: scale(0.97, .97); }
+    60% {transform: scale(1.01, 1.01);}
+    80% {transform: scale(0.99, .99);}
+    100% {transform: scale(1); opacity: 1;}
+}
+
+footer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    margin-top: 10rem;
+    font-size: 1.4rem;
+}
